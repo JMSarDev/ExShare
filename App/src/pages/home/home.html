@@ -1,0 +1,53 @@
+<ion-header>
+  <ion-navbar>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title>Nuevo examen</ion-title>
+  </ion-navbar>
+</ion-header>
+<ion-content padding>
+  <form (ngSubmit)="submitExam()">
+    <ion-list>
+
+      
+      <ion-item>
+        <ion-label stacked>{{'NAME' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="exam.name" name="name"></ion-input>
+      </ion-item>
+
+      <ion-item>
+        <ion-label stacked>{{'PROFESSOR' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="exam.professor" name="professor"></ion-input>
+       <!-- <button ion-item (click)="setProfessorImg()">
+          <ion-avatar item-left>
+            <img [src]="imgDir" alt="" >
+          </ion-avatar>
+        </button>  -->
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'PLACE' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="exam.location" name="location"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'KEYWORD' | translate }}</ion-label>
+        <ion-input type="text" [(ngModel)]="exam.shareName" name="shareName"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'DATE' | translate }}</ion-label>
+        <!-- <ion-input type="date" [(ngModel)]="exam.date" name="date"></ion-input> -->
+        <ion-datetime displayFormat="DD/MM/YYYY" pickerFormat="DD MMMM YYYY" min="2017" max="2025" [(ngModel)]="date" name="date"></ion-datetime>
+      </ion-item>
+      <ion-item>
+        <ion-label stacked>{{ 'HOUR' | translate }}</ion-label>
+        <ion-datetime displayFormat="HH:mm" pickerFormat="HH mm" [(ngModel)]="hour" name="hour"></ion-datetime>
+      </ion-item>
+      <!-- Bug con último ion-item (No muestra linea horizontal si esta al final) -->
+      <ion-item></ion-item>
+    </ion-list>
+    <div padding>
+      <button ion-button color="primary" type="submit" block>{{ 'SEND' | translate }}</button>
+    </div>
+  </form>
+  <!--<button ion-button secondary menuToggle>Abrir menu</button> -->
+</ion-content>
